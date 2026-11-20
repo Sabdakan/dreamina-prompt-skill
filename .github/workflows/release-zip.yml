@@ -1,0 +1,23 @@
+name: release zip
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build the zip
+        run: |
+          mkdir -p out/dreamina-prompt
+          git archive HEAD | tar -x -C out/dreamina-prompt
+          rm -rf out/dreamina-prompt/.github out/dreamina-prompt/.gitignore out/dreamina-prompt/README.md
+          cd out && zip -qr ../dreamina-prompt.zip dreamina-prompt
+      - name: upload it to the latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view latest >/dev/null 2>&1 || gh release create latest --title "Latest" --notes "The newest version of the skill. The zip is rebuilt on every change."
+          gh release upload latest dreamina-prompt.zip --clobber
