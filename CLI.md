@@ -42,8 +42,10 @@ dreamina-canvas node create image --mode i2i --model seedream_5.5 --ratio 1:1 --
 
 ## Way 2: run it (credits)
 
+When the user has chosen Way 2 as their default (PROJECT-NOTES.md says so), the skill goes straight from the prompt to the quote, with no Way 1 card step for them to press. The price approval below still happens for every run, or once for a batch whose items and total ceiling are listed before it runs.
+
 1. Save the card as in Way 1, then get its price: `dreamina-canvas node quote` (see its `--help`). A quote of 0 means this run is free (an Unlimited model or a free use); it says nothing about the next one.
-2. **Ask the user**, every time: what will run, the price, and the most credits it may use. Wait for a clear yes.
+2. **Ask the user**, every time: what will run, the price, and the most credits it may use. Wait for a clear yes. For a batch (a series, several variants), list every item with its price and the total, and ask once for the whole batch; a run that is not on the approved list needs its own yes. A quote of 0 (an Unlimited model) still gets a one-line notice before it runs.
 3. Run with that ceiling: `... --run --credit-ceiling <approved amount> --wait`. The CLI stops if the price is higher. Never run without `--credit-ceiling`: small runs may need no confirmation from Dreamina's server, so the ceiling is the only guard. Never use `--yes` for a run.
 4. Look at the result before calling it done. Download images with `dreamina-canvas resource download <resource id>` into the project's folder; videos and audio are opened on the canvas.
 5. A result that missed: change one thing (FEEDBACK.md), and ask again before the next run.

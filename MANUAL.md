@@ -104,6 +104,7 @@ When a result is right, say **"kept"**. I log it, and what fixed it becomes a le
 | "what can Seedance 2.5 do?" | The live limits from Dreamina's CLI, when it is installed |
 | "put it in Dreamina" | The prompt saved as a card on your Dreamina canvas (no credits) |
 | "run it" | The price first; it runs only after your yes, with that credit limit |
+| "Way 2 by default" | From then on every prompt goes straight to a price and your yes, then runs; a series is priced and approved as one list |
 
 ---
 
