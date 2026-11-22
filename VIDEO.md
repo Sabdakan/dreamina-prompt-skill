@@ -1,6 +1,6 @@
 # Video: Seedance
 
-Built from Dreamina's Seedance 2.5 page and its examples, CapCut's Seedance 2.0 Mini formula and a community Seedance 2.0 skill written for the Chinese platform. Limits differ between them; see MODEL-NOTES.md and use what the user's Dreamina shows.
+Built from Dreamina's Seedance 2.5 page and its examples, CapCut's Seedance 2.0 Mini formula, a community Seedance 2.0 skill, and, on 2026-11-22, a paid account's screen, Dreamina's own "Try it" video prompts and its CLI's live model list. Limits change; see MODEL-NOTES.md and use what the user's Dreamina shows.
 
 ## Still first, then motion
 
@@ -14,24 +14,34 @@ Write a text-only video prompt (all eight parts, Style Card included) only when 
 
 ## Which video model
 
-| Use | Model (seen 2026-11-20) |
-|---|---|
-| Testing an idea, the timing, the camera | **Seedance 2.5 Draft**: 480p drafts, fewer credits |
-| The keeper | The full model, with the same prompt and uploads: **Seedance 2.5** ("up to 50 references" on its page) or **Seedance 2.0 Mini** (the default: up to 12 references, up to 15 s, 720P, 25 credits for 5 s) |
-| Many quick clips | **Seedance 2.5 Flash** (faster, fewer credits) |
+Seen on a paid plan, 2026-11-22 (prices are credits for 5 s unless noted; "Unlimited" = free with the plan's Unlimited switch).
 
-Test on Draft first. When the draft is right, run the keeper with nothing changed but the model, so the test tells the truth about the keeper.
+| Use | Model | Length, sizes | References | Credits |
+|---|---|---|---|---|
+| Testing the idea, timing and camera | **Seedance 2.5 Draft** | 4-30 s, 480P | up to 50 | 0 with Unlimited (85 list) |
+| Many quick clips | **Seedance 2.5 Flash** | 4-30 s, 480P, 720P | up to 20 (CLI: 10 images, 5 clips, 5 audio) | 0 with Unlimited (55-120 list) |
+| The keeper | **Seedance 2.5** | 4-30 s, 480P, 720P, 1080P, 4K | up to 50 (CLI: 30 images, 10 clips, 10 audio) | 480P, 720P 0 with Unlimited; 1080P 455 |
+| A short clip at 1080P-4K | **Seedance 2.0 / 2.0 Fast** | 4-15 s, 720P-4K | up to 12 (9 images, 3 clips, 3 audio) | 2.0: 1080P 205, 4K 490; Fast: 1080P 70, 4K 110 |
+| Cheap 720P | **Seedance 2.0 Mini** | 4-15 s; 720P (screen also lists 1080P-4K) | up to 12 | 1080P 55, 4K 95 |
+| A moving copy of a reference clip (motion transfer, object swap) | **Dreamina Recreate / Recreate Lite** | up to 30 s / 15 s, 720P | the clip | 29 / 17 |
+| Fixed 8 s clip with native sound, 16:9 or 9:16 only | **Veo 3.1 / Fast / Lite** | 8 s | up to 3 images | 800 / 200-240 / 104-160 |
+
+- Test on Draft first. When the draft is right, run the keeper with nothing changed but the model, so the test tells the truth about the keeper.
+- The prompt limit is 15,000 characters on Seedance 2.5 and 4,000 on 2.0: room for the director's block below.
+- Many other models are listed (Wan 3.0, Grok Imagine, FLUX 3 Video, Vidu Q4, LTX 2.5, PixVerse, Luma Ray 3.2, HappyHorse, Gemini Omni). Most cost far more than Seedance on this plan; use one only for a reason it names (Vidu Q4: image and audio references; FLUX 3 Video: keyframes up to 20 s).
 
 ## Modes
 
-| Mode (seen 2026-11-20) | Use it for |
-|---|---|
-| Omni reference (the default) | Several references, each with a role: a character, a place, a camera move to copy, music |
-| First and last frames | Still first, then motion: the approved still opens the clip; a second still can end it |
-| Multiframes | Several approved stills as key moments in order (read from its name; check its tooltip on the screen) |
-| Smart edit | One change in a clip that is nearly right |
-| Long video | A clip longer than one generation (see "Longer clips") |
-| Video recreate | Motion transfer or an object swap from a reference clip (the Recreate models) |
+| Mode (seen 2026-11-22) | Use it for | Note |
+|---|---|---|
+| Omni reference (the default) | Several references, each with a role: a character, a place, a camera move to copy, music | Up to 50 on Seedance 2.5 |
+| First and last frames | Still first, then motion: the approved still opens the clip; a second still can end it | The first frame sets the ratio; two frames must share one ratio |
+| Multiframes | Several approved stills as key moments, in order: "Upload frames to generate a continuous video" | **Switches the model to Seedance 1.0 Fast**; the length is the sum of the segments |
+| Smart edit | One change in a clip that is nearly right: "replace Character A with Character B"; "Edit with marks" for a region | **Switches to Seedance 2.5 Flash** |
+| Long video | A clip longer than a normal generation | Seedance 2.5, 30 s by default |
+| Video recreator | Motion transfer or an object swap from a reference clip | **Switches to Recreate Lite** |
+
+Switching the mode can switch the model: name both in SETTINGS, and tell the user to check the model after choosing the mode. An Element always goes in through Omni reference, never into a frame slot.
 
 ## The eight parts, in this order
 
@@ -62,6 +72,37 @@ Keep: the drawing style, palette and line of the first frame; <character traits>
 
 Text only: the same, with "Use <reference> as <character>" plus the Character Card (or the character's @Element) after the format line, and "Look: <Style Card>" after the camera line.
 
+### The director's block (several references, shots, dialogue or a beat-synced cut)
+
+Dreamina's own "Try it" video prompts (2026-11-22) are written as one block of labelled sections. Use this form for anything with more than one shot, a speaking character, or music the cuts must follow:
+
+```
+<One line: what it is, length, ratio, look and energy>.
+
+ACTIVE REFERENCES
+@Image 1: <the character>. 100% matches the reference.
+@Image 2: <the prop or place>. 100% matches the reference.
+
+KEEP: <what must not change: the exact stack of parts, the count, the outfit; what must not be added>.
+
+SHOTS
+0.0-3.0s - <shot size>: <action, start -> finish>. <camera move>.
+3.0s HARD CUT. 3.0-5.0s - <shot size>: <action>. <Character> says: "<the line>".
+5.0-7.0s - <shot size>: <end state, held>.
+Cuts only at the specified points.
+
+AUDIO: <music: genre, tempo in BPM, the beat the cuts land on ("one beat every 0.4 s from 0.0 s"), what syncs to it>; <effects tied to actions>; <voice: who speaks, "(playful, unhurried)" delivery notes>, or "No vocals, no voice-over".
+LIGHTING: <source, direction, colour temperature>.
+OUTPUT: <ratio>, <length> seconds.
+
+POSITIVE LOCKS: @Image 1 looks the same in every shot. <Lip sync matches the spoken lines.> <The final frame shows ...>.
+Avoid: <concrete defects: extra people or hands, changed outfit, deformed parts, text, logos, watermarks>.
+```
+
+- "100% matches the reference" after each reference, and POSITIVE LOCKS at the end, are how Dreamina's own prompts hold identity across shots.
+- Shot sizes as letters are fine (WS, MS, MCU, CU, ECU). Lens or field-of-view numbers ("MS, 47 deg FOV") belong only to a photographic or live-action look, never to an inked or painted one (STYLE-BRIDGE.md).
+- A beat grid makes edits land on the music: state the tempo, the start and the spacing, and name what lands on a beat.
+
 ## One job per shot
 
 One subject action, one camera move, one place. Two events or two places are two shots. For Seedance 2.0 Mini and other short generations: concrete subject + one visible action + framing with at most one move + one proof detail (dust at each step, a drop of water falling).
@@ -77,7 +118,7 @@ One subject action, one camera move, one place. Two events or two places are two
 ## Timing
 
 - Seedance 2.5's own examples write timecoded shots: "0-4s: ... 4-10s: ...". Use that form for every clip of two or more beats.
-- Under 8 s: one or two beats. 9-12 s: two or three beats. 13-15 s: three or four beats.
+- Under 8 s: one or two beats. 9-12 s: two or three beats. 13-15 s: three or four beats. 16-30 s (Seedance 2.5 only): five to eight beats, each with its own time range.
 - Vertical social clips: something moves or changes in the first 2 s.
 - Trailer beats: wide opener -> medium development -> moving shot for escalation -> close payoff.
 - Name transitions: match cut, whip pan, cut to black on a sound. Plant a detail early and return to it at the end.
@@ -86,14 +127,15 @@ One subject action, one camera move, one place. Two events or two places are two
 ## References
 
 - Type @ in the prompt box to tag an uploaded asset or a saved Element. Name each one the way Seedance 2.5's examples do (@Image 1, @Video 1, @Audio 1, or the Element's name) and give every tag its role in words: "@Image 1 is the first frame; @Video 1 lends its camera move; @Audio 1 is the music".
-- Seedance 2.0 Mini takes up to 12 references (images, videos, audio) in Omni reference mode, or @ mentions of saved Elements (seen 2026-11-20). Plan for no more than 12 until the screen shows more.
+- Limits (2026-11-22): Seedance 2.5 and 2.5 Draft up to 50 references (30 images, 10 clips, 10 audio), 2.5 Flash up to 20, Seedance 2.0, 2.0 Fast and 2.0 Mini up to 12 (9 images, 3 clips, 3 audio), Veo 3.1 up to 3 images. Saved Elements count as references and are mentioned with @.
+- A reference audio file can carry the music or a voice the clip follows: "@Audio 1 is the music; cut on its beats".
 - A reference video can lend its camera move or rhythm: "copy the camera move of @Video 1". Use only the user's own footage or clips they may use.
 - Per character: one primary picture or one Character Element, fixed traits named once and repeated at the beat where they matter.
 - Few references that agree beat many. Uploads of realistic human faces may be blocked.
 
 ## Longer clips
 
-One generation is short (2.0 Mini: up to 15 s on the screen; up to 30 s claimed on the 2.5 page). For more:
+One generation is up to 30 s on the Seedance 2.5 family and 15 s on Seedance 2.0 (seen 2026-11-22). For more:
 
 1. Split the story into segments of one generation each. Write each segment's end state exactly; it is the next segment's opening.
 2. Segment 1 is a normal generation.
@@ -112,7 +154,10 @@ One generation is short (2.0 Mini: up to 15 s on the screen; up to 30 s claimed 
 | Limbs multiply or melt in motion | Smaller, slower movement; closer shot; fewer characters moving at once |
 | Unwanted captions or logos | "no captions, no lettering" |
 | Sound out of step | Tie each sound to a timecode or an action |
-| One thing wrong in a clip that is otherwise right | Smart edit mode on that clip, not a new generation |
+| One thing wrong in a clip that is otherwise right | Smart edit mode on that clip, not a new generation; Edit segment to retake only a stretch of it |
+| Lips out of step with the line | The line in quotes inside its shot, its delivery in brackets, "Lip sync matches the spoken lines" in POSITIVE LOCKS; fewer words per shot |
+| The look changed after picking a mode | The mode switched the model: set the model back (Multiframes, Smart edit and Video recreator each pick their own) |
+| Right clip, wrong frame size or too soft | Reframe video (1:1, 3:4, 4:3, 16:9, 9:16, 21:9); Creative upscale (video to 4K) |
 
 Never ask for opposites in one beat: static and handheld, one take and five cuts, soft daylight and hard neon.
 

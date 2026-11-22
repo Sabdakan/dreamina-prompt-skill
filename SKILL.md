@@ -1,13 +1,13 @@
 ---
 name: dreamina-prompt
-description: Writes prompts and the settings to pick for Dreamina (CapCut) - Seedream images, image edits, series of matching pictures, and Seedance videos (still first, then motion) - keeping one project's look, palette and characters consistent through Style and Character Cards, saved Elements, references, the project's art docs and the palette data of ui-ux-pro-max, and learning from each result in a per-project log. Use when the user asks for a Dreamina, Seedream or Seedance prompt, or for prompts for key art, Steam capsules, social posts, card or icon pictures, trailers, teasers, Shorts, TikToks or Reels they will make in Dreamina, or reports or shows how a Dreamina result came out. Prompts only: Claude makes no art.
+description: Writes prompts and the settings to pick for Dreamina (CapCut) - Seedream and other image models, image edits, series of matching pictures, Seedance videos (still first, then motion), voice-overs and character dialogue (ElevenLabs, MiniMax, SeedAudio), sound scenes and music (MiniMax Music) - keeping one project's look, palette, characters and voices consistent through Style and Character Cards, saved Elements, references and a per-project log; with Dreamina's own CLI it reads the live model catalog, places prompts on the user's canvas, or runs them after the user approves the credits. Use when the user asks for a Dreamina, Seedream, Seedance or Dreamina audio or music prompt, or for key art, Steam capsules, social posts, card or icon pictures, trailers, teasers, Shorts, TikToks, Reels, voice lines, narration or music they will make in Dreamina, or reports or shows how a Dreamina result came out.
 ---
 
 # Dreamina prompt writer
 
 If PROJECT-NOTES.md exists beside this file, read it first: its project rules win over this skill's defaults.
 
-The user makes every picture and clip themselves in Dreamina. This skill writes the prompt and the settings to pick, and never generates art.
+This skill writes the prompt and the settings to pick; the art is made by Dreamina on the user's account. By default the user runs it. With Dreamina's CLI the skill can also place the prompt on the user's canvas, or run it after the user approves the credits ([CLI.md](CLI.md)). Claude never draws a picture itself.
 
 ## Pick the job
 
@@ -20,6 +20,11 @@ The user makes every picture and clip themselves in Dreamina. This skill writes 
 | Many pictures of one kind (cards, icons, a post series) | Series | [SERIES.md](SERIES.md) |
 | A clip | Still first, then motion | [VIDEO.md](VIDEO.md) |
 | A clip longer than one generation | Segments | [VIDEO.md](VIDEO.md), "Longer clips" |
+| Several shots, a speaking character, cuts on the music | The director's block | [VIDEO.md](VIDEO.md), "The director's block" |
+| Voice lines, dialogue, narration, a voice-over | Voice | [AUDIO.md](AUDIO.md) |
+| Voices, effects and music placed by time in one track | Sound scene | [AUDIO.md](AUDIO.md), "A timed sound scene" |
+| A song, a theme, a music bed | Music | [AUDIO.md](AUDIO.md), "Music" |
+| "Put it in Dreamina", "run it for me", "what can model X do" | CLI | [CLI.md](CLI.md) |
 | They say or show how a result came out | Result | [FEEDBACK.md](FEEDBACK.md) |
 | The first prompt ever for a project | Setup, then the job | [FEEDBACK.md](FEEDBACK.md), "First time for a project" |
 
@@ -34,7 +39,8 @@ A complete worked answer of each kind is in [EXAMPLES.md](EXAMPLES.md).
    - A project with no notes and no docs: ask for its look in three lines, or the name of its saved Style Element.
 3. **Cards.** Reuse the Style Card and Character Cards from `cards.md`, or draft them with [STYLE-BRIDGE.md](STYLE-BRIDGE.md) and get the user's yes before a series depends on them. Card text is pasted unchanged, never reworded.
 4. **Settings.**
-   - Model: [IMAGE.md](IMAGE.md), "Which image model" (Seedream 5.5 for tries and cut-outs: 6 credits a picture, 4 a run, up to 2K, a Background setting; Seedream 5.0 Pro for a final at 4K: 9 credits a picture, 2 a run). For video, [VIDEO.md](VIDEO.md), "Which video model" (test on Seedance 2.5 Draft, run the keeper on the full model).
+   - Model: [IMAGE.md](IMAGE.md), "Which image model" (an Unlimited model for tries: Seedream 5.5 or 5.0 Flash at 1.5K-2K; Seedream 5.0 Pro for a final at 4K; GPT Image 2.5 for exact text and unusual ratios). For video, [VIDEO.md](VIDEO.md), "Which video model" (test on Seedance 2.5 Draft, run the keeper on Seedance 2.5). For voice and music, [AUDIO.md](AUDIO.md), "Pick the tool".
+   - When the CLI is installed and a limit matters, check it live: `scripts/catalog.py` ([CLI.md](CLI.md)).
    - Size and ratio: [FORMATS.md](FORMATS.md). What each model offers on the screen: [MODEL-NOTES.md](MODEL-NOTES.md).
    - Background (Seedream 5.5 only): Transparent for a cut-out, Opaque for a picture with a scene.
    - Elements: when an approved subject or look is saved as an Element, the prompt mentions it with @ and does not describe it again.
@@ -69,7 +75,9 @@ IF IT COMES OUT WRONG
 - <likely problem> -> <the one line to change, or the Dreamina tool to use>
 ```
 - SETTINGS names everything to set by hand: the model, the ratio, the resolution (Seedream 5.5: 1.5K or 2K; 5.0 Pro: up to 4K), the pictures a run (5.5: 4; 5.0 Pro: 2), Background (Seedream 5.5 only; leave it out on other models), the mode, and any saved Element to mention with @.
-- For video, SETTINGS names the model, ratio, resolution, duration, mode and Elements; no Pictures or Background.
+- For video, SETTINGS names the model, ratio, resolution, duration, mode and Elements; no Pictures or Background. When the mode changes the model (Multiframes, Smart edit, Video recreator), say so.
+- For voice and music, use the output format in AUDIO.md.
+- Name the price when it is known (MODEL-NOTES.md): "6 credits a picture, free with Unlimited".
 - Everything the user pastes into Dreamina sits in one code block; settings and notes stay outside it.
 - Two or three variants only when the brief leaves a real choice (moment, angle, mood) or the user asks; each is a complete prompt with a one-line label of how it differs.
 
@@ -78,11 +86,13 @@ IF IT COMES OUT WRONG
 - [ ] Format and purpose open the prompt; the focal subject comes before any style word, with its colour, texture and action.
 - [ ] Card text is identical to earlier prompts of the series; colours are hex plus a colour name.
 - [ ] Words match the medium: no lens, film or photo terms in an inked or painted look.
-- [ ] Short sentences and concrete words, not "cinematic", "epic", "beautiful", "high quality", "nice", "some". Image prompts under about 200 words.
+- [ ] Short sentences and concrete words, not "cinematic", "epic", "beautiful", "high quality", "nice", "some". The short form under about 200 words; the labelled form only for layouts, text or preserved references (IMAGE.md), inside the model's prompt limit.
 - [ ] One accent colour, one light story, one camera move per shot, one job per shot.
 - [ ] Counts stated positively where models slip (a hand: five fingers; a fox: four legs, one tail).
 - [ ] Text in the picture is the exact words in double quotes with letter style, colour and place; logos are added in an editor.
-- [ ] Exclusions are "keep ..." lines or positive statements; an "avoid" line only for a defect already seen. The word "transparent" is never in a prompt: transparency is Seedream 5.5's Background setting or the Remove BG tool.
+- [ ] Exclusions are "keep ..." lines or positive statements first; a closing "Avoid:" paragraph lists only concrete defects. The word "transparent" is never in a prompt: transparency is the Background setting (Seedream 5.5, GPT Image) or the Remove BG tool.
+- [ ] Voice scripts use the model's own tag brackets (ElevenLabs `[ ]`, MiniMax `( )`, Seed TTS none) and an exact voice name from the library; one voice per character.
+- [ ] A run through the CLI has the user's yes to its price and a `--credit-ceiling` (CLI.md).
 - [ ] SETTINGS fits what the model offers (MODEL-NOTES.md): the ratio is in its list, no 4K on Seedream 5.5, Background only on 5.5.
 - [ ] A saved Element is mentioned with @ and not described again; a newly approved anchor is flagged to be saved as an Element.
 - [ ] Size and the destination's rules match FORMATS.md (Steam: no text beyond the title; none on the library hero).
@@ -90,9 +100,9 @@ IF IT COMES OUT WRONG
 
 ## Files
 
-[IMAGE.md](IMAGE.md) · [VIDEO.md](VIDEO.md) · [SERIES.md](SERIES.md) · [FEEDBACK.md](FEEDBACK.md) · [STYLE-BRIDGE.md](STYLE-BRIDGE.md) · [FORMATS.md](FORMATS.md) · [MODEL-NOTES.md](MODEL-NOTES.md) · [EXAMPLES.md](EXAMPLES.md)
+[IMAGE.md](IMAGE.md) · [VIDEO.md](VIDEO.md) · [AUDIO.md](AUDIO.md) · [SERIES.md](SERIES.md) · [FEEDBACK.md](FEEDBACK.md) · [STYLE-BRIDGE.md](STYLE-BRIDGE.md) · [FORMATS.md](FORMATS.md) · [CLI.md](CLI.md) · [MODEL-NOTES.md](MODEL-NOTES.md) · [EXAMPLES.md](EXAMPLES.md)
 
-`scripts/look_up.py` (styles, palettes, fonts from the ui-ux-pro-max skill, installed beside this one) · `scripts/expand_series.py` (one frame + many subjects -> a prompt sheet). Run them as `python "<skill folder>/scripts/<name>.py" ...`.
+`scripts/look_up.py` (styles, palettes, fonts from the ui-ux-pro-max skill, installed beside this one) · `scripts/expand_series.py` (one frame + many subjects -> a prompt sheet) · `scripts/catalog.py` (Dreamina's live models and voices, read-only, needs the CLI). Run them as `python "<skill folder>/scripts/<name>.py" ...`.
 
 [MANUAL.md](MANUAL.md) is the user's guide to this skill. Read it only when the user asks how to use the skill; keep it true when the skill changes.
 

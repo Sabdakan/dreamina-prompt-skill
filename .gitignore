@@ -1,3 +1,4 @@
 PROJECT-NOTES.md
+private/
 __pycache__/
 *.pyc

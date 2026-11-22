@@ -1,6 +1,6 @@
 # Images: Seedream
 
-Built from Dreamina's own text-to-image prompt article, its Seedream 5.0 Pro guide and two provider guides (Runware for 5.0 Pro, fal for 5.0 Lite). Where they differ, the safer advice is used; see MODEL-NOTES.md.
+Built from Dreamina's own text-to-image prompt article, its Seedream 5.0 Pro guide, two provider guides (Runware for 5.0 Pro, fal for 5.0 Lite), and, on 2026-11-22, a paid account's screen, Dreamina's own example prompts and its CLI's live model list. Where they differ, the screen wins; see MODEL-NOTES.md.
 
 ## The formula, in this order
 
@@ -14,7 +14,17 @@ The order follows Dreamina's own prompt article: state the use case, then the su
 6. **Text in the picture** - only if wanted (see below).
 7. **Style** - the Style Card, pasted unchanged, last.
 
-Keep it under about 200 words. Longer prompts start to contradict themselves and details drop. When a result is vague, sharpen a clause; don't add more clauses.
+## Short form or labelled form
+
+- **Short form** (under about 200 words): one subject, one place, little or no text. Longer free prose starts to contradict itself. When a result is vague, sharpen a clause; don't add clauses.
+- **Labelled form** for a layout with several parts: a poster, a capsule with a title, a product shot, a picture that must keep a reference's identity. Dreamina's own Seedream 5.5 examples are written this way (2,500 to 4,500 characters; the limit is 5,000 on Seedream 5.5 and 5.0 Pro, 4,000 on Seedream 4.x, 7,000 on GPT Image):
+  - an opening sentence with the format, ratio, purpose and look;
+  - one short paragraph per part, each starting with its label (LAYOUT, BACKGROUND, SUBJECT, PRODUCT, LIGHTING, TYPOGRAPHY, or Lighting:, Background:, Overall mood:);
+  - layout in percentages of the canvas ("keep 4-5% margins; the left 35% for the title, the right 55% for the subject");
+  - for a reference: one sentence naming what to preserve ("Preserve the character's face, proportions, colours and marks from the reference picture");
+  - every word to render in quotes, with its place, its size as a share of the canvas ("letter height 2-3% of canvas height"), colour and letter style, and "Spell every letter correctly";
+  - a closing **Avoid:** paragraph of concrete defects (below).
+- Never pad a short brief into the labelled form: length buys control of parts, not quality.
 
 ## Template
 
@@ -27,11 +37,26 @@ Light: <source, direction, colour>. Mood: <one mood>.
 Style: <Style Card>.
 ```
 
+Labelled form:
+```
+Create a <ratio> <kind of picture> for <purpose>. <One line of look and mood>. <Preserve ... from the reference picture / @Element.>
+
+LAYOUT: <margins and shares of the canvas in %; where each part sits; where empty space is kept>.
+SUBJECT: <who or what, colour, texture, pose or action>.
+<OTHER PART>: <one short paragraph per part: background, props, product>.
+LIGHTING: <source, direction, softness, colour>.
+TYPOGRAPHY: "<EXACT WORDS>" at <place>, letter height <n>% of canvas height, <colour>, <letter style>. Spell every letter correctly. No other wording.
+STYLE: <Style Card>.
+
+Avoid: <concrete defects: changed identity, extra limbs, misspelled text, borders, watermarks, ...>.
+```
+
 ## Text in the picture
 
 - Put the exact words in double quotes; unquoted words are read as description. Short phrases render best (1-5 words).
 - Say the letter style in words, the colour and the place: `the title "MOSSWELL" across the top third in chunky hand-cut woodblock capitals, ink black`. Take the letter style from `typography-designer` or `look_up.py --table fonts`.
-- Seedream 5.5 has a "Draw text on image" switch: turn it on when the picture carries words.
+- Seedream 5.5, the 3.x models and the GPT Image models have a "Draw text on image" switch: turn it on when the picture carries words.
+- Long or layout-heavy text: GPT Image 2 ("precise text rendering"), Ideogram 4.0 ("precise layouts and multilingual text") or Seedream 5.0 Pro ("optimized for cinematic and text-rich visuals"). End with "No additional wording, borders or watermarks."
 - Check the spelling in every result.
 - A logo is never generated: reserve the space ("clean empty band across the top third") and place the real logo in an editor. Steam capsules allow no text beyond the title.
 
@@ -45,18 +70,30 @@ Write hex together with a colour name ("#C8553D brick red"). Hex works best on l
 - Refer to each by what it shows ("the fox scout from the reference picture"), not by its number alone; numbers break when the set is reordered. If Dreamina inserts a tag when you type @, use that tag and still name its role.
 - With a reference attached, describe only what is new: pose, place, composition, light. Do not describe the character again, or the two fight.
 - Clean references work best: one subject, plain background, the angle you need. Two references that disagree give a blend of both.
+- How many references a model takes (image-to-image, the CLI's model list, 2026-11-22): GPT Image 2.5 Flare and Sunburst 16; Nano Banana 2.1 14; Seedream 5.5 and 5.0 Pro 10; Seedream 4.x, Nano Banana Pro and GPT Image 2 6. Seedream 4.6 and 4.7 also take up to 14 in text-to-image.
+- Say what each reference is for, and what to preserve from it: "Preserve the fox's face, proportions, fur colours and scarf from @FoxScout; take only the brush texture and palette from the second picture."
 - **Saved Elements** (Assets & Elements, Elements tab): an approved subject or look saved once and mentioned with @ in any prompt, picture or video. Types: Character, Scene, Prop, Product, Style, Other. A name of up to 20 characters. Save each approved anchor as an Element; a prompt then names it ("@FoxScout standing on a mossy rock") and describes only what is new. An Element is a saved reference, not a trained model: the rules above still hold.
 - **Visual to prompt** (All tools) writes a prompt from an approved picture. Use it to learn which words Dreamina reads from that picture, then keep only what matches the Style Card; never paste its output unchecked.
 
 ## Which image model
 
-| Use | Model (seen 2026-11-20) |
-|---|---|
-| Trying ideas, many tries, transparent cut-outs | **Seedream 5.5**: 6 credits a picture, 4 a run, 1.5K or 2K, Background: Auto / Opaque / Transparent |
-| The final picture, a model reference at the largest size | **Seedream 5.0 Pro**: 9 credits a picture, 2 a run, up to 4K, no Background setting |
-| A model with a free or unlimited allowance on the plan | Whichever the plan page names, for the tries; the final on 5.5 or 5.0 Pro |
+Seen on a paid plan, 2026-11-22. Credits are per picture and rise with resolution; "Unlimited" means the plan's Unlimited switch makes it free (up to 3 pictures a prompt).
 
+| Use | Model | Sizes, pictures a run | Credits a picture |
+|---|---|---|---|
+| Tries, a series, transparent cut-outs | **Seedream 5.5** | 1.5K, 2K; 1-8 (3 when Unlimited); Background Auto/Opaque/Transparent | 6 (1.5K), 9 (2K); **Unlimited** at both |
+| Free tries at 4K too | **Seedream 5.0 Flash** | 1.5K, 2K, 4K; 1-4 | 6, 6, 10; Unlimited at 1.5K and 2K |
+| The final at the largest size, text-rich pictures | **Seedream 5.0 Pro** | 1.5K, 2K, 4K; 1-4; adds 9:21 | 9, 12, 18 |
+| Cheapest drafts, character consistency | **Seedream 4.6 / 4.7** (4.6: "improved character consistency") | 2K, 4K; 1-8 | 2, 4 |
+| Exact text, layouts, many ratios (1:2, 2:1, 4:5, 5:4, 1:3, 3:1) | **GPT Image 2.5 Flare / Sunburst** | 1K, 2K, 4K; 1; Quality Low-Max; Background setting | Medium 4-6 (Unlimited at 1K, 2K); High 17-30, Max 54-104 |
+| Precise text | **GPT Image 2** | 1K, 2K, 4K; 1-4 | Medium 21-48, High 4K 180 |
+| Consistent subjects, many references | **Nano Banana 2.1** | 1K, 2K, 4K; 1-4 | 12, 18 (both Unlimited), 37 |
+| Multilingual text and layouts | **Ideogram 4.0 / 4.5** | 1K, 2K; 1; Quality | 4-16 at Medium |
+
+- Start on an Unlimited model (Seedream 5.5 or 5.0 Flash) for tries; spend credits only on the final.
 - Keep one model for one series: changing models changes the drawing hand.
+- Quality (GPT, Grok, Ideogram) multiplies the price: Medium for tries, High only for a final that needs it.
+- The resolution chosen stays when the model is switched; check it, because the price follows it.
 - A kept picture that is only too small: Creative upscale (to 8K), not a new run on another model.
 - Name the model, resolution, pictures a run and Background in the SETTINGS line (SKILL.md, "Output format").
 
@@ -92,7 +129,7 @@ Without the "keep exactly" line, things the user did not mention drift. "Make it
 - Close: keep what works, change one clause, regenerate.
 - Central idea missed: rewrite from the brief, not from the failed prompt.
 - A local flaw in a good picture: Smart edit on that region, not a new generation (FEEDBACK.md, "The cheapest fix first").
-- Exclusions: say what you want instead ("plain flat background", "empty sky"). Add an "avoid" line only for a defect seen in a result, and remove it when it stops appearing.
+- Exclusions: say what you want first ("plain flat background", "empty sky"). Dreamina has no negative-prompt box; its own examples end with an **Avoid:** paragraph inside the prompt. Use one in the labelled form, or after a defect has been seen: concrete things only ("Avoid: extra legs, a second scarf, misspelled title, watermark, white cutout halo"), never vague ones ("bad quality").
 
 ## Problems seen in still images
 

@@ -30,6 +30,7 @@ Counts: <four legs, one bushy tail, two pointed ears / two arms, five fingers>
 Colour: <2-3 colours as hex + name>
 Marks: <the fixed details: a torn left ear, a green scarf, a leather satchel>
 Primary picture: <which approved picture is the reference> · Element: <@Name of the saved Character Element, if any>
+Voice: <model> · <exact voice name from the library> · <how they speak: pace, pitch, two delivery tags they use most>
 ```
 Once an approved picture exists, attach it (or mention its Element) and send only Counts and Marks as text: the picture carries the rest, and describing it again makes the two fight. The same card feeds `3d-prompt-engineer` or `tripo-prompt`, so the user's 3D model and Dreamina pictures match.
 

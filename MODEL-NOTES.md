@@ -2,7 +2,50 @@
 
 Dreamina changes its models and limits often, and the guides disagree. A figure in the middle column is a claim; the right column is what the screen showed. Fill it the first time each fact comes up, by asking the user what their screen shows.
 
-The right column was read on 20.11.2026 in Claude's browser pane, on a **free-plan** Dreamina login (120 credits). A paid plan may show more models, sizes or free allowances.
+The right column was read on 20.11.2026 in Claude's browser pane, on a **free-plan** Dreamina login (120 credits). **The section "A paid plan and the CLI (22.11.2026)" below is newer and wins where they differ.**
+
+## A paid plan and the CLI (22.11.2026)
+
+Read on a paid "Advanced" account's screen, every model and mode opened without generating, and from Dreamina's CLI (`dreamina-canvas` 1.4.0: `model list`, `voice list`). Prices are credits, before the Unlimited switch; "list" = the struck-through price.
+
+**Images (20 models on the screen; 13 callable from the CLI).** Per picture:
+| Model | Sizes | Pictures a run | Credits | Unlimited | Prompt limit, references |
+|---|---|---|---|---|---|
+| Seedream 5.5 | 1.5K, 2K (CLI also lists 3K for members) | 1-8 | 6 / 9 (list 8 / 13) | yes, 1.5K and 2K, up to 3 a prompt | 5,000; 10 |
+| Seedream 5.0 Flash | 1.5K, 2K, 4K | 1-4 | 6, 6, 10 | 1.5K and 2K | - |
+| Seedream 5.0 Pro | 1.5K, 2K, 4K | 1-4 | 9, 12, 18 | no | 5,000; 10 |
+| Seedream 5.0 Lite / 4.5 | 2K, 4K | 1-8 | 6, 8 | no | 4,000; 6 |
+| Seedream 4.7 / 4.6 / 4.1 | 2K, 4K | 1-8 | 2, 4 | no | 4,000; 6 (4.6, 4.7: 14 in text-to-image) |
+| Seedream 4.0, 3.1, 3.0 | 2K-4K; 1K-2K | 1-8; 1 | 2-4 (a few free uses) | no | 4,000 |
+| GPT Image 2.5 Flare / Sunburst | 1K, 2K, 4K, Custom; 15 ratios incl. 1:2, 2:1, 4:5, 5:4, 1:3, 3:1 | 1 | Medium 4-6; High 17-30; Ultra 26-63; Max 54-104 | Medium at 1K, 2K | 7,000; 16 |
+| GPT Image 2 | 1K, 2K, 4K | 1-4 | Medium 21 / 38 / 48; High 4K 180 | no | 7,000; 6 |
+| Nano Banana 2.1 / Pro | 1K, 2K, 4K | 1-4 | 12, 18, 37 / 42, 42, 75 | 1K, 2K | 5,000; 14 / 6 |
+| Grok Imagine 2.0, FLUX 3 Image, Ideogram 4.5 / 4.0 | 1K-2K | 1 | 12-55 | no | - |
+- Background (Auto / Opaque / Transparent): Seedream 5.5 and the GPT Image models. "Draw text on image": Seedream 5.5, 3.x and GPT Image. No negative-prompt box, no seed, no prompt-enhance switch. The chosen resolution carries over when the model changes.
+- Dreamina's own image examples (three "Try it" prompts on Seedream 5.5): 2,500-4,500 characters in labelled paragraphs, layout in percentages, quoted text with size and font, a "preserve the reference" sentence, and a closing "Avoid:" or "Negative prompt:" paragraph. Explore shows community prompts in both long prose and comma-tag styles.
+
+**Video (31 models on the screen; 25 callable from the CLI).** Credits for the default length:
+| Model | Length | Sizes | References (CLI) | Credits |
+|---|---|---|---|---|
+| Seedance 2.5 | 4-30 s | 480P, 720P, 1080P, 4K | 50: 30 images, 10 clips, 10 audio | 0 with Unlimited at 480P, 720P (list 85, 185); 1080P 455 |
+| Seedance 2.5 Draft | 4-30 s | 480P | 50 | 0 with Unlimited (list 85) |
+| Seedance 2.5 Flash | 4-30 s | 480P, 720P | 20 (screen); CLI 10 images, 5 clips, 5 audio | 0 with Unlimited (list 55, 120) |
+| Seedance 2.0 | 4-15 s | 720P, 1080P, 4K | 12: 9 images, 3 clips, 3 audio | 1080P 205, 4K 490 |
+| Seedance 2.0 Fast | 4-15 s | 720P-4K | 12 | 1080P 70, 2K 85, 4K 110 |
+| Seedance 2.0 Mini | 4-15 s | 720P (CLI); screen also 1080P-4K | 12 | 1080P 55, 4K 95 |
+| Seedance 1.0 / 1.0 Fast | 5-10 s | 1080P / 720P-1080P | first frame | 125 / 25-40 |
+| Recreate / Recreate Lite | up to 30 s / 15 s | 720P | a template clip | 29 / 17 |
+| Veo 3.1 / Fast / Lite | 8 s fixed; 16:9, 9:16 | 720P-4K | 3 images | 800-1,200 / 200-600 / 104-160 |
+| Others (Wan 3.0, Grok Imagine, FLUX 3 Video, Vidu Q2-Q4, LTX 2.5, PixVerse 5-5.6, Luma Ray 3.2, HappyHorse 1.1, Gemini Omni) | 4-20 s | 360P-4K | 0-20 | 25-944 |
+- Prompt limits: Seedance 2.5 family 15,000 characters; Seedance 2.0 family, Veo 4,000; Wan, FLUX 3 Video 20,000; PixVerse 512.
+- Choosing a reference mode switches the model: Multiframes -> Seedance 1.0 Fast; Smart edit -> Seedance 2.5 Flash; Video recreator -> Recreate Lite; Long video -> Seedance 2.5 at 30 s.
+- Dreamina's own video examples (three "Try it" prompts on Seedance 2.0 Mini): a one-line opener, time-coded beats ("0-1.5s:"), ACTIVE REFERENCES with "@image1 ... 100% matches the reference", shot sizes with field of view, "HARD CUT", dialogue in quotes with delivery notes, an AUDIO section with a BPM beat grid, LIGHTING, OUTPUT, POSITIVE LOCKS and an Avoid list.
+
+**Audio.** AI Audio modes: Omni audio (SeedAudio 1.0) and Voiceover (ElevenLabs v3, v4, MiniMax Speech 2.8 HD, Turbo, Seed TTS). AI Music is a separate mode: MiniMax Music 3.0, 35 credits shown. Prompt limits: ElevenLabs v4 and MiniMax 10,000; ElevenLabs v3 2,000; SeedAudio 3,000; Seed TTS 600. Voices: ElevenLabs 105, Seed TTS 24, MiniMax and SeedAudio 13. Tags: ElevenLabs square brackets (a preset list plus free phrases), MiniMax round brackets (vocal sounds only), Seed TTS none. SeedAudio takes up to 3 audio references or 1 image (not both) and timestamps for speech, effects and music. AUDIO.md has the details.
+
+**Tools (All tools).** Smart edit, Creative upscale (images to 8K, video to 4K), Video recreator, Edit segment, Visual to prompt, Extend video, Reframe video (6 ratios), Video dubbing (9 languages and more), Create avatar, Remove BG, Image resizer (up to 8 sizes at once), Expand image, Separate layers, Recreate image, Look swap, Localize image, Angles, Relight, Panorama, 3D Director Console, Motion capture, Clay renderer (Blender and Maya). The CLI adds video interpolation to 30 or 60 fps (free for members) and depth capture.
+
+**Not read yet:** the plan page, queue and concurrency limits, Create avatar's panel, Seedance 2.5 at 4K, the length controls of Veo, LTX, PixVerse and Luma.
 
 ## As seen in the user's Dreamina
 
@@ -36,7 +79,7 @@ The right column was read on 20.11.2026 in Claude's browser pane, on a **free-pl
 - Fix tools: FEEDBACK.md, "The cheapest fix first".
 - Video modes and reference tags: VIDEO.md, "Modes" and "References".
 
-## The paid-plan screen pass (the next read of the user's Dreamina)
+## The paid-plan screen pass (done on 22.11.2026, above; repeat it after a big Dreamina update)
 
 On 20.11 only a free-plan login was read, and the info icons were not opened. When the paid plan is bought, read the whole screen again, read-only (nothing that spends credits without the user's word):
 

@@ -17,6 +17,7 @@ Counts: two arms, two legs, one bushy tail, two pointed ears.
 Colour: #D9813B fox orange fur, #6A8D73 sage green scarf.
 Marks: a sage green scarf, a leather satchel on the left hip, a white tip on the tail.
 Primary picture: not yet approved · Element: none yet
+Voice: ElevenLabs v4 · a young-adult voice picked in the Voice library · quick and bright, a little breathless; [excited], [whispering]
 ```
 
 ---
@@ -162,3 +163,83 @@ IF IT COMES OUT WRONG
 - A three-quarter or back view is needed -> Angles on the approved front view first; this prompt is the fallback
 
 The word "transparent" is not in the prompt: the Background setting does it. When the side view is approved, add it to the @FoxScout Element's references.
+
+---
+
+## 7. Fox scout voice lines - Mosswell - Voice
+
+SETTINGS  Mode: Voiceover · Model: ElevenLabs v4 · Voice: <the name on the Character Card>
+UPLOAD    nothing
+
+SCRIPT
+```
+Fox Scout
+[excited, a little breathless] The well's working again! Come and see!
+
+Fox Scout
+[whispering] Shh. Something's moving behind the windmill.
+
+Fox Scout
+[curious] [slowly] Huh. That bucket wasn't there yesterday.
+
+Fox Scout
+[tired] [sighing] One more trip to the river... then supper.
+```
+
+IF IT COMES OUT WRONG
+- Lines sound alike -> one stronger tag per line, and a short free phrase: [hushed, glancing over a shoulder]
+- The voice is too old or too deep -> pick another voice with the Age filter on Young adult; record it on the Character Card
+- A tag is spoken aloud -> check the model: square brackets are for ElevenLabs only
+
+Each line is its own file for the game (one generation per line), so barks can be triggered one by one.
+
+---
+
+## 8. Village theme - Mosswell - Music
+
+SETTINGS  Mode: AI Music · Model: MiniMax Music 3.0 · Instrumental: on · Style: Indie Folk, Peaceful Relief, Nylon Guitar, Felt Piano, Airy Highs
+UPLOAD    nothing
+
+PROMPT
+```
+Gentle instrumental village theme for a cosy building game menu, about 90 BPM. Nylon guitar picks a warm, simple melody over soft felt piano chords, a light shaker joins halfway. Peaceful and hopeful, unhurried, sparse enough to sit under a voice. A steady loopable groove that ends where it began.
+```
+
+IF IT COMES OUT WRONG
+- Too busy -> drop to two instruments and add "Sparse" from the Texture chips
+- Feels sad -> swap the mood chip to Peaceful Relief or Quirky; "bright major key"
+- The end does not loop -> trim the loop in an editor at a bar line; the model does not promise a seamless loop
+
+---
+
+## 9. Trailer beat - Mosswell - Video (the director's block)
+
+SETTINGS  Model: Seedance 2.5 · Ratio: 16:9 · Resolution: 720P (free with Unlimited) · Duration: 8 s · Mode: Omni reference · Element: @FoxScout
+UPLOAD    @Image 1: the approved key art of the well (the place) · @Audio 1: the village theme from example 8
+
+PROMPT
+```
+An 8-second 16:9 trailer beat in the flat storybook look of @Image 1, warm and playful.
+
+ACTIVE REFERENCES
+@FoxScout: the fox scout. 100% matches the reference.
+@Image 1: the stone well and the windmill. Keep its drawing style, palette and paper grain.
+@Audio 1: the music. Cut on its beats.
+
+SHOTS
+0.0-3.0s - wide: @FoxScout runs in from the left and skids to a stop at the well, dust puffing at each step. Slow slide right.
+3.0s HARD CUT. 3.0-5.5s - close-up: the fox hauls the rope, ears flat with effort; the bucket rises into view, dripping.
+5.5-8.0s - medium: the fox lifts the full bucket overhead, water sparkling; hold on this pose.
+Cuts only at the specified points.
+
+AUDIO: @Audio 1 as the music; a rope creak on each pull; one splash at 5.5s. No voice-over.
+OUTPUT: 16:9, 8 seconds.
+
+POSITIVE LOCKS: @FoxScout looks the same in every shot: the sage green scarf, the satchel, the white tail tip.
+Avoid: lens or photo look, extra characters, a second scarf, text, logos, watermarks.
+```
+
+IF IT COMES OUT WRONG
+- It looks like a 3D render -> remove "trailer" energy words; repeat "keep the flat drawing style of @Image 1" in POSITIVE LOCKS
+- The cut misses the beat -> give the beat grid in AUDIO ("one beat every 0.67 s from 0.0 s") and land the cut on a beat time
+- Test first on Seedance 2.5 Draft with the same prompt; run the keeper only when the draft is right

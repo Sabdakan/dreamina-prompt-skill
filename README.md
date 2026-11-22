@@ -1,6 +1,6 @@
 # dreamina-prompt
 
-A Claude skill that writes prompts for Dreamina (by CapCut): pictures with the Seedream models and videos with the Seedance models. It keeps one style across a whole series, makes character sets one picture per pose, plans social posts, store art and clips, and reads results to fix the next try.
+A Claude skill that writes prompts and settings for Dreamina (by CapCut): pictures (Seedream, GPT Image, Nano Banana and more), videos (Seedance, with a director's block for shots, dialogue and beat-synced cuts), voice-overs and character dialogue (ElevenLabs, MiniMax, SeedAudio) and music (MiniMax Music). It keeps one style and one voice per character across a whole project, picks the cheapest model and tool for each job, and reads results to fix the next try. With Dreamina's own CLI installed it reads the live model catalog, places prompts on your Dreamina canvas, or runs them after you approve the credits.
 
 It writes prompts and settings only; you run them in the tool yourself.
 

@@ -97,6 +97,13 @@ When a result is right, say **"kept"**. I log it, and what fixed it becomes a le
 | "my Dreamina shows: Seedance 2.5, up to 15 s, ratios ..." | The skill's model notes corrected, plans adjusted |
 | "kept" / "that fixed it" / "log it" | The round logged |
 | "shorter" | The same prompt with fewer clauses; subject, counts and card stay |
+| "voice lines for the fox: excited, whispering, tired" | A voice script with delivery tags in the model's brackets, one voice per character |
+| "narration for the trailer" | A narration script with a tone tag per sentence |
+| "menu music, calm, loopable" | A music description, Style chips and settings |
+| "trailer shot, 8 seconds, cut on the music" | The director's block: references, timed shots, audio, locks |
+| "what can Seedance 2.5 do?" | The live limits from Dreamina's CLI, when it is installed |
+| "put it in Dreamina" | The prompt saved as a card on your Dreamina canvas (no credits) |
+| "run it" | The price first; it runs only after your yes, with that credit limit |
 
 ---
 
@@ -143,7 +150,8 @@ For a new project or a new look, this order saves the most generations:
 
 ## 8. What the skill does not do
 
-- It does not make or edit pictures, and it does not operate Dreamina.
+- It never draws anything itself: pictures, clips, voices and music are made by Dreamina on your account.
+- Without Dreamina's CLI it does not operate Dreamina. With the CLI it places a prompt on your canvas when you ask, and runs one only after you approve its price, every time (CLI.md).
 - It knows your Dreamina's limits only as far as MODEL-NOTES.md records them. Until your screen shows more, it plans inside the smaller numbers.
 - It never puts artists, studios, films or other games into a prompt, and never uploads a reference picture you shared only for reading a look, unless you say so.
 - Steam screenshots must be real gameplay, so it writes no prompts for those.
