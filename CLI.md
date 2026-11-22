@@ -44,11 +44,20 @@ dreamina-canvas node create image --mode i2i --model seedream_5.5 --ratio 1:1 --
 
 When the user has chosen Way 2 as their default (PROJECT-NOTES.md says so), the skill goes straight from the prompt to the quote, with no Way 1 card step for them to press. The price approval below still happens for every run, or once for a batch whose items and total ceiling are listed before it runs.
 
-1. Save the card as in Way 1, then get its price: `dreamina-canvas node quote` (see its `--help`). A quote of 0 means this run is free (an Unlimited model or a free use); it says nothing about the next one.
-2. **Ask the user**, every time: what will run, the price, and the most credits it may use. Wait for a clear yes. For a batch (a series, several variants), list every item with its price and the total, and ask once for the whole batch; a run that is not on the approved list needs its own yes. A quote of 0 (an Unlimited model) still gets a one-line notice before it runs.
+1. Save the card as in Way 1, then get its price: `dreamina-canvas node quote` (see its `--help`). The quote is the list price even on an Unlimited model (the CLI cannot switch Unlimited on); a free run is pressed on Dreamina's own screen (see "Unlimited, the watermark and Elements" below).
+2. **Ask the user**, every time: what will run, the price, and the most credits it may use. Wait for a clear yes. For a batch (a series, several variants), list every item with its price and the total, and ask once for the whole batch; a run that is not on the approved list needs its own yes. A free Unlimited run still gets a one-line notice before it is pressed.
 3. Run with that ceiling: `... --run --credit-ceiling <approved amount> --wait`. The CLI stops if the price is higher. Never run without `--credit-ceiling`: small runs may need no confirmation from Dreamina's server, so the ceiling is the only guard. Never use `--yes` for a run.
 4. Look at the result before calling it done. Download images with `dreamina-canvas resource download <resource id>` into the project's folder; videos and audio are opened on the canvas.
 5. A result that missed: change one thing (FEEDBACK.md), and ask again before the next run.
+
+### Unlimited, the watermark and Elements (seen 2026-11-22, CLI 1.4.0)
+
+- **Unlimited is not in the CLI.** `node quote` and `--credit-ceiling` see the list price even on an Unlimited model, and no flag sets the Unlimited switch. A free run is started on Dreamina's own screen: on the canvas card, switch Unlimited on, read the price as 0, press Generate. The CLI still saves the cards, waits (`node show`) and downloads.
+- **Unlimited is one task at a time per account, in a slower lane** (the switch's own line: "Turn off to use credits for faster generation"; at peak times a run can wait an hour). While one task waits, the other cards show the list price and no switch: do not press them. Never start a run while the user's own runs wait.
+- **Cancel a waiting run from its own card** ("Cancel generation"). After the card is deleted the run keeps going on the server, and neither the CLI (it has no cancel for image runs) nor the History panel can stop it.
+- **The visible "AI" mark is added at export.** After the user switches on "Remove watermarks" (account menu), download again any picture downloaded before: it comes clean, the same pixels otherwise.
+- **Element cards** made with `node create element` (a main picture, extra pictures, a description) stay on that canvas; they do not appear in Assets & Elements. They work as a reference: `--ref node:<element node id>` with `{{node:<id>}}` in the prompt. An account Element needs the user's file upload in Assets & Elements.
+- **A connected card** (`--ref node:<id>`) uses the shown picture of that card. A model may return the reference nearly unchanged when asked for a new view of the same object (MODEL-NOTES.md).
 
 ## Rules
 
