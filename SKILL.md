@@ -21,6 +21,7 @@ This skill writes the prompt and the settings to pick; the art is made by Dreami
 | A clip | Still first, then motion | [VIDEO.md](VIDEO.md) |
 | A clip longer than one generation | Segments | [VIDEO.md](VIDEO.md), "Longer clips" |
 | Several shots, a speaking character, cuts on the music | The director's block | [VIDEO.md](VIDEO.md), "The director's block" |
+| A motion-graphics video from a Motion Studio style (tiles, type, charts, explainers) | Motion Studio: read the style's card first | [MODEL-NOTES.md](MODEL-NOTES.md), "Motion Studio" |
 | Voice lines, dialogue, narration, a voice-over | Voice | [AUDIO.md](AUDIO.md) |
 | Voices, effects and music placed by time in one track | Sound scene | [AUDIO.md](AUDIO.md), "A timed sound scene" |
 | A song, a theme, a music bed | Music | [AUDIO.md](AUDIO.md), "Music" |

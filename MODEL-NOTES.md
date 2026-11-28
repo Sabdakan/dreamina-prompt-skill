@@ -71,6 +71,41 @@ Read on a paid "Advanced" account's screen, every model and mode opened without 
 | Sound | Generated with the clip | Not checked |
 | Agent access | - | "Plugins & CLI: create with Dreamina in your Agent" (not used: Claude makes no art) |
 
+## Motion Studio (seen on the user's screen, 28.11.2026)
+
+- **What it is:** motion-graphics videos written as code ("Where code sets your ideas in motion"), not a diffusion video model. Credits "are charged per million tokens used. Usage depends on video complexity. Actual usage may vary from the estimate." Code draws letters cleanly, so on-screen titles and captions can go in the prompt in double quotes. It shows no Unlimited switch.
+- **The box:**
+  - Style chip: a style from the gallery; "Use style" puts the style and its sample prompt in the box.
+  - The prompt.
+  - Your media: Import from link, Select from Assets (tabs Assets / Elements; Images, Videos, Audio, Docs), Upload from device.
+  - Ratio: 21:9, 16:9, 4:3, 1:1, 3:4, 9:16.
+  - Duration: a slider from 0 to 360 s, with a number box.
+  - **@** ("Use @ to add saved elements"): the account's saved Elements, by type.
+  - The model menu.
+- **Models** (on 22.11 one model was shown, "Dreamina Motion Standard"):
+  - **Dreamina Motion Lite**: "For everyday creative work - Low credit usage".
+  - **Dreamina Motion Pro**: "For more polished results - High credit usage".
+  - Estimates on the style cards (Pro / Lite): 3D Mosaic, 1:1, 20 s, about 389 / 52; Pop-Up Storybook, 16:9, 30 s, 427 / 43; Symbol Evolution Promo, 16:9, 20 s, 763 / 60; 3D Science Explainer, 16:9, 100 s, 705 / 92. Pro costs about 7-13 times Lite. Test on Lite; make the keeper on Pro.
+- **Styles:**
+  - The tabs: All, Marketing, Explainers, Visual Effects, Animated Charts, Storytelling, Other.
+  - The 53 styles: Pop-Up Storybook, Logo to Brand Identity, Liquid Glass Product Walkthrough, Pixel Art Explainer, Creative Tool Demo, Minimalist Web-Style Showcase, Card Motion Product Showcase, Geometric Motion Graphics, 3D Science Explainer, Minimal Brand Story, Editorial Web-Style Showcase, Pixel Adventure, Fuse Bead Art, 3D Product Showcase, Risograph Cards, Surreal Paper Collage, Visual Explainer, Retro Film-Grain Collage, Paper Keyword Film, Vinyl Record Showcase, Isometric Miniature Scene Animation, Kinetic Typography, Split-Flap Signage, 3D Image Sphere Brand Showcase, Glowing Particles, Retro Magazine Collage, Tufted Type Collage, Spectrum Logo Showcase, Scrolling Art Gallery, Single-Line Drawing, Elastic Typography, Futuristic Glass, 1980s Retrofuturism, Sci-Fi HUD, Minimalist Infographics, ASCII Art Animation, Five-Color Risograph, Classical Chinese Poetry Animation, Eased Transitions, Neon Spatial Typography, Bubble Carousel, Bauhaus Beat, Text Squeeze, Photo Diary, Psychedelic Kaleidoscope, Gradient Trail Typography, Y2K Anime Pop Collage, 3D Mosaic, Symbol Evolution Promo, Pet Sticker Diary, Textured Prints (the last "Load more" was not opened further).
+  - Each style's card shows its Description, its References (some have none), its sample Prompt, ratio, length and credits.
+- **3D Mosaic:**
+  - Its card: "Tile-like 3D blocks form animals and landscapes as day turns to night, creating a playful mosaic world for nature stories, artistic intros, or fun shorts. Describe your subject, setting, and action; optionally add time-of-day changes, colors, and mood."
+  - Its sample: a deer in a forest, "as the scene transitions from daytime to dusk and then night".
+  - The preview: small square tiles, a sky of concentric tile rings, the tiles scattering and re-forming between moments.
+  - It takes no references of its own.
+  - (Fuse Bead Art is a different bead-relief look, shown with a wave.)
+- **Narration:** Pop-Up Storybook's sample asks for captions "in time with two short lines of narration per spread", so the studio voices its own narration. Whether it follows an attached audio file is untested.
+- **Not in the CLI** (1.4.0): no command, no model. Motion Studio is reached only from the web page.
+- **Writing for it:**
+  - Answer what the style card's Description asks for.
+  - Open with the style's own first words ("Create a mosaic-style motion graphics video ...").
+  - Give each beat its seconds.
+  - Quote on-screen words exactly.
+  - Name one fixed set when the scene must stay the same.
+  - Mention an Element by typing @ and picking it (pasted text does not link).
+
 ## Where these facts change the instructions
 
 - SETTINGS line (SKILL.md, "Output format"): model, ratio, resolution, pictures a run, Background on Seedream 5.5, any Element to mention with @.
@@ -93,7 +128,7 @@ On 20.11 only a free-plan login was read, and the info icons were not opened. Wh
 4. Elements: the Set up element form's every field and hint, how many pictures one Element takes, how a saved Element shows in the @ list.
 5. All tools, one by one, opened without running: Angles, Remove BG, Separate layers, Smart edit, Creative upscale, Expand image, Recreate image, Look swap, Relight, Visual to prompt, Image resizer: each one's controls, tooltips and price. Tools that show controls only after a picture: the user drops one test picture in.
 6. AI Video, model by model: credits a second, lengths, sizes, the mode menu (Omni reference, First and last frames, Multiframes, Smart edit, Long video, Video recreate) and each mode's tooltip, references a model takes, the sound setting.
-7. Canvas, Marketing Studio, Motion Studio, Drama Studio: what each is for, read from its own screen.
+7. Canvas, Marketing Studio, Motion Studio, Drama Studio: what each is for, read from its own screen. (Motion Studio done 28.11, section above.)
 8. Plugins & CLI: what it offers (read only; Claude makes no art).
 
 ## Points where the guides disagree
