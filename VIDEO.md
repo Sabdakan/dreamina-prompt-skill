@@ -27,7 +27,10 @@ Everything a clip shows is made and approved before any motion. A clip asked to 
 6. **Motion:** each key frame opens its own short clip (First and last frames, Draft first).
 7. **Assembly in an editor:** the clips, the voice, the music, the titles and captions. Text is set as editor or code text, never drawn by a model.
 
-Motion Studio is for flat graphic pieces (titles, maps, charts). It does not keep a character's look (MODEL-NOTES.md, "Motion Studio").
+In Motion Studio:
+- With a style template, it brings the template's own subject and draws flat.
+- With no template and the look in words, it can carry an explainer: the approved assets go in through Your media, and every move, icon and caption gets its own line with its seconds.
+- See MODEL-NOTES.md, "Motion Studio".
 
 ## Which video model
 

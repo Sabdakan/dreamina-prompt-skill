@@ -103,6 +103,11 @@ Read on a paid "Advanced" account's screen, every model and mode opened without 
   - The set came out as flat vector shapes (a leaf, low-poly hills, a moon), and the @Element was pasted in as a flat picture. A detailed character then looks stuck onto a flat world.
   - The output was 1080x1920 at 30 fps for a 9:16 run.
   - Use Motion Studio for graphic pieces: titles, captions, maps, charts. Characters in a world go through stills and Seedance (VIDEO.md, "Assets first").
+- **A second try (28.11), with no style chip and the look written in words** (watercolour set, cel-painted character):
+  - it drew the set and the character in one matching look;
+  - but a prompt that described a still picture gave 20 s in which nothing moved.
+  - It animates only what the prompt names: every move, icon, label and caption needs its own line with its seconds.
+  - So it can carry an explainer with a character: actions, icons, callouts, cards that pop open, captions. The approved assets (background plate, character cut-outs, icons) can go in through Your media, and the prompt gives each one its role.
 - **Writing for it:**
   - Answer what the style card's Description asks for.
   - Open with the style's own first words ("Create a mosaic-style motion graphics video ...").
