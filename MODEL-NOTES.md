@@ -98,6 +98,11 @@ Read on a paid "Advanced" account's screen, every model and mode opened without 
   - (Fuse Bead Art is a different bead-relief look, shown with a wave.)
 - **Narration:** Pop-Up Storybook's sample asks for captions "in time with two short lines of narration per spread", so the studio voices its own narration. Whether it follows an attached audio file is untested.
 - **Not in the CLI** (1.4.0): no command, no model. Motion Studio is reached only from the web page.
+- **What a first run showed (28.11):**
+  - A style is a template with its own sample subject: the 3D Mosaic deer appeared inside the user's video, as part of the animation.
+  - The set came out as flat vector shapes (a leaf, low-poly hills, a moon), and the @Element was pasted in as a flat picture. A detailed character then looks stuck onto a flat world.
+  - The output was 1080x1920 at 30 fps for a 9:16 run.
+  - Use Motion Studio for graphic pieces: titles, captions, maps, charts. Characters in a world go through stills and Seedance (VIDEO.md, "Assets first").
 - **Writing for it:**
   - Answer what the style card's Description asks for.
   - Open with the style's own first words ("Create a mosaic-style motion graphics video ...").

@@ -12,6 +12,23 @@ The strongest way to keep a clip on the project's look:
 
 Write a text-only video prompt (all eight parts, Style Card included) only when there is no frame to start from.
 
+## Assets first (every clip with characters or a set)
+
+Everything a clip shows is made and approved before any motion. A clip asked to invent its own set or restyle a character comes out mixed: flat shapes around one detailed character.
+
+1. **Script and shot list:** the lines, the seconds for each shot, what each shot shows.
+2. **Look frame:** one still in the chosen look, a character standing in the set. It is approved before anything else.
+3. **Asset kit,** each item approved and saved as an Element:
+   - the set as an empty background plate in the clip's ratio, plus one edit of the same plate for each change of light;
+   - every character in the look, in each pose the script needs;
+   - the props.
+4. **Key frames:** one still for each shot, made from the plate and the Elements. Approved.
+5. **Voice,** approved (AUDIO.md).
+6. **Motion:** each key frame opens its own short clip (First and last frames, Draft first).
+7. **Assembly in an editor:** the clips, the voice, the music, the titles and captions. Text is set as editor or code text, never drawn by a model.
+
+Motion Studio is for flat graphic pieces (titles, maps, charts). It does not keep a character's look (MODEL-NOTES.md, "Motion Studio").
+
 ## Which video model
 
 Seen on a paid plan, 2026-11-22 (prices are credits for 5 s unless noted; "Unlimited" = free with the plan's Unlimited switch).
