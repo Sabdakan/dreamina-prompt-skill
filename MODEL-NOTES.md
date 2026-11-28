@@ -108,6 +108,16 @@ Read on a paid "Advanced" account's screen, every model and mode opened without 
   - but a prompt that described a still picture gave 20 s in which nothing moved.
   - It animates only what the prompt names: every move, icon, label and caption needs its own line with its seconds.
   - So it can carry an explainer with a character: actions, icons, callouts, cards that pop open, captions. The approved assets (background plate, character cut-outs, icons) can go in through Your media, and the prompt gives each one its role.
+- **What Dreamina's own Motion Studio page says (read 28.11, dreamina.capcut.com/tools/motion-studio):**
+  - It is a coding agent: it writes animation code and renders it in the background. It is built for type, numbers, charts, icons and moving the pictures it is given, not for painting a world or moving a character's limbs (that is Seedance's work).
+  - Styles come from a preset library; no way to save one's own style was seen. A custom look goes in as words plus a **Reference** picture (the user's own approved frame); assets go in through Your media.
+  - Follow-up messages edit the same animation (text, colours, layout, timing): fix a run by talking to it, not by starting over.
+  - Its suggested order: the layout, then the motion (entrances, transitions, paths, speed, pauses), then colours, fonts and style.
+- **For the best quality:**
+  - Give it finished pictures (a painted background plate, cut-outs with no background, icons) at 2K or more, one per file, each named by its role in the prompt; let it draw only type and simple shapes.
+  - Lite for drafts, Pro for the final.
+  - Leave frame interpolation off for a hand-drawn look (it turns drawn motion into smooth video); Upscale only a soft result.
+- **The same kind of work can be done outside Dreamina** with a code-to-video framework (Remotion, HyperFrames) on the user's own machine: exact timing, a template reused for every video, renders without credits. It paints no art either.
 - **Writing for it:**
   - Answer what the style card's Description asks for.
   - Open with the style's own first words ("Create a mosaic-style motion graphics video ...").
